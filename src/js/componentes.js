@@ -7,6 +7,11 @@ const inputNewTodo = document.querySelector('.new-todo');
 const clearAllTodos = document.querySelector('.clear-completed');
 const ulFiltros = document.querySelector('.filters');
 const anchorFiltros = document.querySelectorAll('.filtro');
+const todoCount = document.querySelector('.todo-count');
+
+export const updatePendientes = () => {
+    todoCount.innerHTML = `<strong>${todoList.getPendientes()}</strong> pendiente(s)`;
+}
 
 export const crearTodoHtml = ( todo ) => {
     const htmlTodo = `

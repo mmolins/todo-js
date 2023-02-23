@@ -27,6 +27,8 @@ export const crearTodoHtml = ( todo ) => {
     const div = document.createElement('div');
     div.innerHTML = htmlTodo;
     divTodoList.append(div.firstElementChild);
+
+    updatePendientes();
     return div.firstElementChild;
 }
 
@@ -35,7 +37,7 @@ inputNewTodo.addEventListener('keyup', ( event ) => {
         const nuevoTodo = new Todo( inputNewTodo.value );
         todoList.nuevoTodo(nuevoTodo);   
         crearTodoHtml(nuevoTodo);
-        inputNewTodo.value = '';
+        inputNewTodo.value = '';        
     }
 });
 
@@ -51,6 +53,7 @@ divTodoList.addEventListener('click', (event) => {
         todoList.eliminarTodo(todoId);
         divTodoList.removeChild( todoElemento );
     }
+    updatePendientes();
 });
 
 clearAllTodos.addEventListener('click', () => {
@@ -61,6 +64,7 @@ clearAllTodos.addEventListener('click', () => {
             divTodoList.removeChild(elemento);
         }
     }
+    updatePendientes();
 });
 
 

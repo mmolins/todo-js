@@ -38,14 +38,12 @@ export class TodoList {
 
     guardarLocalStorage() {
         localStorage.setItem('todo',JSON.stringify(this.todos) );
-        updatePendientes();
-    }
+     }
 
     cargarLocalStorage() {        
         this.todos = localStorage.getItem('todo') 
                             ? JSON.parse(localStorage.getItem('todo')) 
                             : [];
         this.todos = this.todos.map( Todo.fromJSON );
-        updatePendientes();
-    }
+     }
 }
